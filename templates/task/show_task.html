@@ -1,0 +1,49 @@
+{% extends 'task/base.html' %}
+{% block title %}
+Alta Campeonato
+{% endblock %}
+{% block content %}
+{% load staticfiles %}
+
+<div id="fondo" class="pt-5">
+	<div class="dark-overlay">
+		<div class="container">
+			<h1 class="text-light">List of tasks</h1>
+			<div class="row">
+				<table class="table table-light">
+					<thead class="thead">
+						<th>Name</th>
+						<th>Description</th>
+						<th>Priority</th>
+						<th>Estate</th>
+						<th>Create Date</th>
+					</thead>
+					<tbody class="table-light">
+						{% if object_list %}
+						{% for task in object_list %}
+						<tr>
+							<td>{{task.name}}</td>
+							<td>{{task.description}}</td>
+							<td>{{task.priority.name}}</td>
+							{% if task.estate.name == 'Pending' %}
+							<td class="text-danger">{{task.estate.name}} <a href="http://127.0.0.1:8000/do_task?id_task={{task.id}}" class="btn btn-success">Do</a></td>
+							{% else %}
+							<td class="text-success">{{task.estate.name}}</td>
+							{% endif %}
+							<td>{{task.create_date}}</td>
+						</tr>
+						{% endfor %}
+						{% else %}
+						<h1 class="text-white">There are not tasks</h1>
+						{% endif %}
+					</tbody>
+				</table>
+			</div>
+			<div class="text-center">
+				<a href="http://127.0.0.1:8000/create_task/" class="btn btn-primary">New Task</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

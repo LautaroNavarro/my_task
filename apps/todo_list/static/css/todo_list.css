@@ -1,0 +1,25 @@
+
+*{
+	font-style:  'Raleway', sans-serif;
+}
+
+#fondo{
+	background-image: url("../img/fondo.jpg");
+	background-size: cover;
+	min-height: 100vh;
+	background-attachment: fixed;
+}
+
+.dark-overlay{
+	min-height: 100vh;
+}
+
+footer{
+	background-color: rgb(40,44,47);
+}
+footer {
+	color:white;
+}
+footer a{
+	color: rgb(1 ,161 ,165);
+}
